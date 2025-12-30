@@ -50,6 +50,7 @@ async function check_status() {
 }
 
 currentUrl = await rl.question(chalk.blue("Enter URL (e.g., https://google.com): "));
+console.log(chalk.gray("...To exit the program, press ctrl+c and to change the URL, press ctrl+u..."));
 check_status();
 
 process.stdin.setRawMode(true);
