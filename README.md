@@ -44,13 +44,11 @@ A robust, modular Command Line Interface (CLI) tool built with Node.js to monito
 ## 🚀 Usage
 
 Start the application by running:
-
     ```bash
     node app.js
     ```
     
 **⌨️ Keyboard Shortcuts (Live Monitoring Mode)**
-
     ```bash
     CTRL+U => Change the URL being monitored
     CTRL+S => Open Database Search menu
@@ -61,7 +59,6 @@ Start the application by running:
 **🤖 Telegram Bot Commands**
 
 To use the bot, you must first register an admin user through the CLI (Option 3 in the main menu).
-
     ```bash
     /login => Authenticate using your CLI-registered credentials.
     /getnd => Get the latest report database as a JSON file (authenticated users with administrator access only).
@@ -87,5 +84,5 @@ macOS: afplay
 
 Linux: aplay (ensure it is installed)
 
-
+***
 Developed by **Bobby**
