@@ -1,115 +1,81 @@
-📘 URL Monitoring & Telegram Alert System
+![NUM Logo](assets/logo.png)
 
-A lightweight yet powerful Node.js-based monitoring tool designed to track website uptime, log response metrics, and send real-time alerts via Telegram.
-This project includes a CLI interface, SQLite logging, user authentication, and a Telegram bot with role-based access control.
-🚀 Features
-🔍 URL Monitoring
+# 🌐 Advanced URL Monitoring System (NUM)
 
-    Continuous HTTP/HTTPS monitoring
+A robust, modular Command Line Interface (CLI) tool built with Node.js to monitor website uptime and performance. It features real-time monitoring, database logging, and a Telegram Bot integration for remote management and alerts.
 
-    Response time measurement
+## ✨ Key Features
 
-    Status code tracking
+- **Real-time Monitoring:** Tracks HTTP status codes and response times.
+- **Interactive CLI:** Beautifully styled terminal interface using `chalk`.
+- **Audio Alerts:** Plays a physical alarm sound (`.wav`) when a network error or downtime occurs.
+- **Telegram Bot Integration:**
+    - Receive downtime alerts directly on Telegram.
+    - Secure 2-step login (Username/Password) via the bot.
+    - Download full activity logs (`logs.json`) remotely.
+- **Persistent Storage (SQLite):**
+    - Stores monitoring history, bot activity logs, and user credentials.
+    - Advanced database search functionality (by ID, URL, Status Code, etc.).
+- **Keyboard Shortcuts:** Control the app on-the-fly without restarting.
+- **Security:** Passwords are encrypted using the **Argon2** hashing algorithm.
 
-    Auto-retry loop
+## 🛠 Prerequisites
 
-    Real-time terminal output
+- [Node.js](https://nodejs.org/) (v16.0.0 or higher)
+- A Telegram Bot Token (obtainable from [@BotFather](https://t.me/botfather))
 
-    Audio alert on failure
+## 📦 Installation
 
-📦 Logging System
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/babakn87/node-uptime-monitor.git
+   cd node-uptime-monitor
+   ```
+2. **Install dependencies:**
+    ```bash
+    npm install
+    ```
+3. **Environment Setup:**
+   On the first run, the app will prompt you for your Telegram Token and automatically create a .env file. Alternatively, you can create it manually:
+   ```bash
+   TOKEN=your_telegram_bot_token
+   ```
 
-    SQLite database for persistent logs
+## 🚀 Usage
+Start the application by running:
+    ```bash
+    node app.js
+    ```
+    
+**⌨️ Keyboard Shortcuts (Live Monitoring Mode)**
+    ```bash
+    CTRL+U => Change the URL being monitored
+    CTRL+S => Open Database Search menu
+    CTRL+F => Return to the Main Menu
+    CTRL+C => Stop and Exit the program
+    ```
+    
+**🤖 Telegram Bot Commands**
+To use the bot, you must first register an admin user through the CLI (Option 3 in the main menu).
+    ```bash
+    /login => Authenticate using your CLI-registered credentials.
+    /getnd => Get the latest report database as a JSON file (authenticated users with administrator access only).
+    ```
 
-    Stores:
+**🗄 Database Structure**
+The system automatically manages three SQLite databases:
 
-        URL
+1.monitoring_logs.db: Stores URL uptime data.
 
-        Status code
+2.Users.db: Manages user accounts and access levels (Admin/Normal).
 
-        Response time
+3.telegramBot_logs.db: Records all bot interactions.
 
-        Success flag
+**⚠️ Audio Alert Note**
+The system uses native OS players for alerts:
 
-        Timestamp
+Windows: PowerShell Media Player
+macOS: afplay
+Linux: aplay (ensure it is installed)
 
-    Search logs by:
-
-        ID
-
-        URL
-
-        Status code
-
-        Success state
-
-        Network errors
-
-🤖 Telegram Bot Integration
-
-    Login system with username/password
-
-    Argon2 password hashing
-
-    Role-based access:
-
-        Admin → receives full alerts + can download logs
-
-        User → receives simplified alerts
-
-    Sends alerts when monitored URL goes down
-
-    Sends logs.json  to admins on request
-
-🔐 User Management
-
-    Register new users from CLI
-
-    Access levels:
-
-        0 → Normal user
-
-        1 → Admin
-
-    Chat ID auto-binding after login
-
-    Active user tracking
-
-🎧 Audio Alerts
-
-    Plays alarm sound on downtime
-
-    Supports:
-
-        Windows
-
-        macOS
-
-        Linux
-
-⌨️ Interactive CLI Shortcuts
-Key	Action
-Ctrl + C	Exit program
-Ctrl + U	Change monitored URL
-Ctrl + S	Search logs
-Ctrl + F	Return to main menu
-🛠️ Tech Stack
-
-    Node.js
-
-    SQLite3
-
-    Argon2
-
-    Telegram Bot API
-
-    Socks Proxy Agent
-
-    Chalk
-
-    Readline
-
-    ESM Modules
-
-📁 Project Structure
-Code
+Developed by **Bobby**
