@@ -1,6 +1,9 @@
-import chalk, { chalkStderr } from "chalk";
+import chalk from "chalk";
 import readline from "readline/promises";
-import {get_active_chatid, get_bot_logs, get_logs, id_validator, is_success_Validator, lowerFirstFive, main_operation_validator, nul_validator, number_validator, save_log, search_operation_validator, url_validator, user_id_pass_validator} from "./dependencies.js"
+import {get_active_chatid, get_bot_logs, get_logs, save_log} from "./repositories.js"
+import {lowerFirstFive , number_validator , null_validator , main_operation_validator , database_id_validator , is_success_Validator} from './validators/number.validators.js';
+import { url_validator } from "./validators/url.validators.js";
+import { user_id_pass_validator, id_validator } from "./Authentication/auth.js"
 import { playSound } from "./alert.js";
 import path from "path";
 import fs from "fs";
@@ -219,7 +222,7 @@ async function search() {
 
     >>>
     `)) 
-    while(!search_operation_validator(op)){
+    while(!database_id_validator(op)){
         op = await rl.question(chalk.cyan(`
         Search in NUM database : 1
         Search in BOT database : 2
@@ -252,7 +255,7 @@ async function search() {
         "2" : async(url) => await url_validator(url),
         "3" : async(is_success) => await is_success_Validator(is_success),
         "4" : async(code) => await number_validator(code),
-        "5" : async(nul) => nul_validator(nul)
+        "5" : async(nul) => null_validator(nul)
     }
 
     let fild = await rl.question(chalk.blue(`Which field do you want to search in the logs : \n\n ID            = 1 \n URL           = 2 \n Is_Success    = 3 \n StatusCode    = 4\n Network Error = 5 \n\n >>>`))

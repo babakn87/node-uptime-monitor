@@ -1,6 +1,7 @@
 import TelegramBot from "node-telegram-bot-api";
 // import { SocksProxyAgent } from "socks-proxy-agent";
-import { authentication, cheach_active_access, save_bot_log } from "./dependencies.js";
+import { check_active_access, save_bot_log } from "./repositories.js";
+import {authentication} from "./Authentication/auth.js"
 import path from 'path';
 import dotenv from "dotenv"
 dotenv.config()
@@ -11,7 +12,7 @@ const userStates = {};
 
 const bot = new TelegramBot(token, {
     polling: true,
-    request: {agent}
+    // request: {agent}
 })
 
 
@@ -83,7 +84,7 @@ export async function send_alert(admin_alert , nurmal_alert , CI) {
 
 
 async function send_logs(chatid) {
-    if(await cheach_active_access(chatid)){
+    if(await check_active_access(chatid)){
         const filePath = path.join(process.cwd() , 'logs' , 'logs.json')
         bot.sendDocument(chatid , filePath)
         await save_bot_log(`The log database json file was sent to ${chatid}`)
