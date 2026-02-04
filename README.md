@@ -45,27 +45,21 @@ A robust, modular Command Line Interface (CLI) tool built with Node.js to monito
 
 Start the application by running:
     
-    ```
     node app.js
-    ```
     
 **⌨️ Keyboard Shortcuts (Live Monitoring Mode)**
     
-    ```
     CTRL+U => Change the URL being monitored
     CTRL+S => Open Database Search menu
     CTRL+F => Return to the Main Menu
     CTRL+C => Stop and Exit the program
-    ```
     
 **🤖 Telegram Bot Commands**
 
 To use the bot, you must first register an admin user through the CLI (Option 3 in the main menu).
     
-    ```
     /login => Authenticate using your CLI-registered credentials.
     /getnd => Get the latest report database as a JSON file (authenticated users with administrator access only).
-    ```
 
 **🗄 Database Structure**
 
