@@ -1,4 +1,4 @@
-![NUM Logo](assets/logo.png)
+![NUM Logo](assets/iamge.png)
 
 # 🌐 Advanced URL Monitoring System (NUM)
 
@@ -42,12 +42,15 @@ A robust, modular Command Line Interface (CLI) tool built with Node.js to monito
    ```
 
 ## 🚀 Usage
+
 Start the application by running:
+
     ```bash
     node app.js
     ```
     
 **⌨️ Keyboard Shortcuts (Live Monitoring Mode)**
+
     ```bash
     CTRL+U => Change the URL being monitored
     CTRL+S => Open Database Search menu
@@ -56,13 +59,16 @@ Start the application by running:
     ```
     
 **🤖 Telegram Bot Commands**
+
 To use the bot, you must first register an admin user through the CLI (Option 3 in the main menu).
+
     ```bash
     /login => Authenticate using your CLI-registered credentials.
     /getnd => Get the latest report database as a JSON file (authenticated users with administrator access only).
     ```
 
 **🗄 Database Structure**
+
 The system automatically manages three SQLite databases:
 
 1.monitoring_logs.db: Stores URL uptime data.
@@ -72,10 +78,14 @@ The system automatically manages three SQLite databases:
 3.telegramBot_logs.db: Records all bot interactions.
 
 **⚠️ Audio Alert Note**
+
 The system uses native OS players for alerts:
 
 Windows: PowerShell Media Player
+
 macOS: afplay
+
 Linux: aplay (ensure it is installed)
+
 
 Developed by **Bobby**
